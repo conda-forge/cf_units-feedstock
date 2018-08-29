@@ -9,15 +9,15 @@ source:
   sha256: aeb4978c11518bcb2516c1cf7beb053d1be0cd8e2349a07ad78094f63a2837f4
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - cython
   host:
     - python
     - pip
-    - cython
     - numpy
     - udunits2 2.2.25  # [win and py2k]
     - udunits2 >=2.2.26,<2.3  # [not (win and py2k)]

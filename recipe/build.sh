@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Make sure cf_units can find the udunits library.
-SITECFG=cf_units/etc/site.cfg
-echo "[System]" > $SITECFG
-echo "udunits2_xml_path = $PREFIX/share/udunits/udunits2.xml" >> $SITECFG
+export UDUNITS2_INCDIR="${PREFIX}/include/udunits2"
+export UDUNITS2_XML_PATH="${PREFIX}/share/udunits/udunits2.xml"
 
 $PYTHON -m pip install . --no-deps -vv

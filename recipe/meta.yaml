@@ -29,6 +29,7 @@ requirements:
     - cftime >=1.2
     - {{ pin_compatible('numpy') }}
     - antlr-python-runtime 4.7.2.*
+    - jinja2
 
 test:
   requires:

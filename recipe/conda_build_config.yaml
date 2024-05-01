@@ -1,0 +1,6 @@
+channel_targets:
+  - conda-forge cf_units_dev
+channel_sources:
+  - conda-forge,conda-forge/label/numpy_dev
+  - conda-forge,conda-forge/label/netcdf4_dev
+  - conda-forge,conda-forge/label/cftime_dev

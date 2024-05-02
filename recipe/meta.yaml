@@ -10,9 +10,11 @@ source:
   sha256: 88a9f140e4157fe4c2d322b5e079046c4c0a7d76cb4950c700a8363bc235074f
   patches:
     - backport_368.patch
+    - np2.patch
+
 
 build:
-  number: 4
+  number: 5
   skip: True  # [py<=38]
 
 requirements:
@@ -20,17 +22,15 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
+    - numpy >=2.0.0rc1                       # [build_platform != target_platform]
     - {{ compiler('c') }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
- 
   host:
     - python
     - pip
-    - numpy
+    - numpy >=2.0.0rc1
     - cython
     - udunits2
     - setuptools-scm
@@ -38,7 +38,7 @@ requirements:
     - {{ pin_compatible('udunits2', max_pin='x.x') }}
     - python
     - cftime >=1.5.2
-    - {{ pin_compatible('numpy') }}
+    - numpy >=1.23.0
     - antlr-python-runtime 4.11.1.*
     - jinja2
 
@@ -46,6 +46,7 @@ test:
   requires:
     - pytest
     - pip
+    - numpy >=2.0.0rc1
   imports:
     - cf_units
   commands:

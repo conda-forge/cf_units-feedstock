@@ -12,7 +12,7 @@ source:
   sha256: 84339f582994ae32ca5c472075c1e603a89f6c6f5a96cc1031bb5da700a14f3a
 
 build:
-  number: 1
+  number: 2
   script:
     - if: win
       then: [build.bat]
@@ -32,6 +32,7 @@ requirements:
     - ${{ stdlib("c") }}
   host:
     - python ${{ python_min }}.*
+    - python-abi3 ${{ python_min }}.*
     - setuptools >=77.0.3
     - setuptools-scm >=8.0
     - numpy
